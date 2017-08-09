@@ -9,37 +9,37 @@ There hasn't been good ways to do concurrent operations for Ceylon. However, usi
 ### Executing concurrent code via Dispatch:
 
 ```ceylon
-Dispatch.run(() => print("Hello world!"));
+  Dispatch.run(() => print("Hello world!"));
 ```
 
 ### Executing concurrent code via Client and Servers:
 
 ```ceylon
 class Exec() satisfies Client {
-shared void exec() {
-MyServer s = MyServer();
-s.sendMessage("hi to server", 12345, this);
-}
-
-shared actual void receiveObject(Object obj, Integer msgId, Server sender) {
-// not implemented
-}
-
-shared actual void receiveTextMessage(String msg, Integer msgId, Server sender) {
-print(msg);
-}
-
+	shared void exec() {
+		MyServer s = MyServer();
+		s.sendMessage("hi to server", 12345, this);
+	}
+	
+	shared actual void receiveObject(Object obj, Integer msgId, Server sender) {
+		// not implemented
+	}
+	
+	shared actual void receiveTextMessage(String msg, Integer msgId, Server sender) {
+		print(msg);
+	}
+	
 }
 
 class MyServer() extends Server() {
-
-shared actual void reactToMessage(String msg, Integer msgId) {
-this.sendMessageToSender("hi from server", 12345);
-}
-
-shared actual void reactToObject(Object obj, Integer msgIdr) {
-// not implemented
-}
-
+	
+	shared actual void reactToMessage(String msg, Integer msgId) {
+		this.sendMessageToSender("hi from server", 12345);
+	}
+	
+	shared actual void reactToObject(Object obj, Integer msgIdr) {
+		// not implemented
+	}
+	
 }
 ```
