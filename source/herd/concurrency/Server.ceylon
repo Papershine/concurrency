@@ -1,4 +1,4 @@
-import com.uvaporate.concurrency.dispatch {
+import herd.concurrency.dispatch {
 	Dispatch
 }
 import java.util {

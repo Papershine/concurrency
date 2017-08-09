@@ -39,6 +39,6 @@
    ```
 """
 native("jvm")
-module com.uvaporate.concurrency "0.1.0" {
+module herd.concurrency "0.1.0" {
 	import java.base "8";
 }
