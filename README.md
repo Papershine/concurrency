@@ -43,3 +43,13 @@ class MyServer() extends Server() {
 	
 }
 ```
+
+## Usage
+
+Place this in your module descriptor (module.ceylon): 
+
+```ceylon
+import herd.concurrency "0.1.0";
+```
+
+The module will be automatically downloaded from Ceylon Herd.
